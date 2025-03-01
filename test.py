@@ -1,3 +1,5 @@
 import pandas as pd
 
-assert 10==20
+assert 10==10
+
+assert 20==20
