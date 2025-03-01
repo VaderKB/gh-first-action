@@ -8,4 +8,8 @@ jobs:
         run: echo "First step"
       - name: Print goodbye
         run: echo "Second step"
-    
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second Job Pring greeting
+        run: echo "Third Step"
