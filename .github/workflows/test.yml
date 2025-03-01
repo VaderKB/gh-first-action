@@ -6,7 +6,7 @@ jobs:
         steps:
             - name: Get Code
               uses: actions/checkout@v4
-    install-terraform:
+    deploy-using-terraform:
         runs-on: ubuntu-latest
         steps:
             - name: Install terraform
@@ -14,8 +14,5 @@ jobs:
             - name: Verify terraform installation
               run :
                 terraform -help
-    deploy-terraform-infra:
-        runs-on: ubuntu-latest
-        steps:
             - name: Run terraform
               run: terraform apply
