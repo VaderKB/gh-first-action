@@ -15,12 +15,3 @@ jobs:
         run: |
           echo "Third Step"
           echo "Fourth Step"
-          mkdir tmp
-          cd tmp
-          echo "Directory tmp created"
-          echo "Hello there" > file.txt
-          echo "File written"
-          cd ..
-          ls -lrt
-          echo "Files listed"
-          cat tmp/file.txt
