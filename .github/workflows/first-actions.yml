@@ -12,4 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Second Job Pring greeting
-        run: echo "Third Step"
+        run: |
+          echo "Third Step"
+          echo "Fourth Step"
+          mkdir tmp
+          cd tmp
+          echo "Hello there" > tmp/file.txt
+          cat tmp/file.txt
