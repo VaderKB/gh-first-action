@@ -14,5 +14,7 @@ jobs:
             - name: Verify terraform installation
               run :
                 terraform -help
+            - name: list files
+              run: ls -lart
             - name: Run terraform
               run: terraform apply
