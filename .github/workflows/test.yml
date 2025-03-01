@@ -30,3 +30,9 @@ jobs:
               run: |
                 terraform init
                 terraform apply -auto-approve
+            - name: Install dependencies
+              run:
+                pip install pandas
+            - name: Run Test
+              run:
+                python test.py
