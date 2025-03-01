@@ -1,0 +1,16 @@
+name: Test Project
+on: push
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v4
+            - name: Show dir
+              run : |
+                pwd
+                ls -lrt
+              
+
+
+              
