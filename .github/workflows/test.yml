@@ -17,3 +17,10 @@ jobs:
                 ls -lart
             - name: Run terraform
               run: terraform apply -auto-approve
+    aws-infra:
+        runs-on: ubuntu-latest
+        steps:
+            - name: install-awscli
+              uses: unfor19/install-aws-cli-action@v1
+            - name: test-awscli
+              run: aws
