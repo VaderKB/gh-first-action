@@ -17,5 +17,7 @@ jobs:
           echo "Fourth Step"
           mkdir tmp
           cd tmp
-          echo "Hello there" > tmp/file.txt
+          echo "Hello there" > file.txt
+          cd ..
+          ls -lrt
           cat tmp/file.txt
