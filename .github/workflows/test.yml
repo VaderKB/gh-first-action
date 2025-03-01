@@ -5,7 +5,19 @@ env:
     AWS_SECRET_ACCESS_KEY: "${{secrets.AWS_SECRET_ACCESS_KEY}}"
     AWS_DEFAULT_REGION: "${{secrets.AWS_DEFAULT_REGION}}"
 jobs:
-    fetch-code:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run:
+                pip install pandas
+            - name: Run Test
+              run:
+                python test.py
+
+    deploy:
         runs-on: ubuntu-latest
         steps:
             - name: Get Code
@@ -37,3 +49,4 @@ jobs:
             - name: Run Test
               run:
                 python test.py
+
