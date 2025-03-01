@@ -27,4 +27,6 @@ jobs:
                  aws configure set region $AWS_DEFAULT_REGION
                  aws configure list
             - name: Run terraform
-              run: terraform apply -auto-approve
+              run: |
+                terraform init
+                terraform apply -auto-approve
