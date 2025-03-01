@@ -16,4 +16,4 @@ jobs:
                 pwd
                 ls -lart
             - name: Run terraform
-              run: terraform apply
+              run: terraform apply -auto-approve
