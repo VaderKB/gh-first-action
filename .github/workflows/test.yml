@@ -38,11 +38,15 @@ jobs:
                  aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
                  aws configure set region $AWS_DEFAULT_REGION
                  aws configure list
-            - name: Run terraform
+            - name: Create terraform infra
               run: |
                 terraform init
                 terraform apply -auto-approve
-                terraform destroy -auto-approve
+            - name: Get EC2 Ip
+              run: 
+                echo "public ip = $(terraform output -raw ec2_public_ip)"
+            - name: Destroy infra
+              run: terraform destroy -auto-approve
             - name: Install dependencies
               run:
                 pip install pandas

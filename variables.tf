@@ -9,3 +9,5 @@ variable "instance_name" {
 variable "ami_value" {
     type = string
 }
+
+variable "cidr_block"{}
