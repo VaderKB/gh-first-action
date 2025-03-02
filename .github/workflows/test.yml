@@ -48,7 +48,6 @@ jobs:
             - name: Set public ip
               run: |
                ls -lrt
-               chmod 400 my-ec2-key.pem
                echo "ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)"
                ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)
                exit
