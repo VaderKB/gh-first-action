@@ -49,12 +49,13 @@ jobs:
               run: |
                echo "EC2_IP=$(terraform output -raw myEc2Ip)" >> $GITHUB_ENV
                echo "EC2 instance is running at: ${{ env.EC2_IP }}"
-            - name: Destroy infra
-              run: terraform destroy -auto-approve
             - name: Install dependencies
               run:
                 pip install pandas
             - name: Run Test
               run:
                 python test.py
+            - name: Destroy infra
+              if: always()
+              run: terraform destroy -auto-approve
 
