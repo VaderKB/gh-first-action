@@ -50,10 +50,10 @@ jobs:
             - name: ssh to ec2
               run: |
                chmod 400 my-ec2-key.pem
-               ls -lrt
-               echo "ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)"
                ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)
-               exit
+               git clone https://github.com/VaderKB/gh-first-action.git
+               cd gh-first-action
+               ls -lrt
             - name: Install dependencies
               run:
                 pip install pandas
