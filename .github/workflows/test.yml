@@ -47,9 +47,10 @@ jobs:
                 echo "public ip = $(terraform output -raw myEc2Ip)"
             - name: Set public ip
               run: |
+               ls -lrt
                chmod 400 my-ec2-key.pem
                echo "ssh -i my-ec2-key.pem ubuntu@$(terraform output -raw myEc2Ip)"
-               ssh -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)
+               ssh -i "my-ec2-key.pem" -t ubuntu@$(terraform output -raw myEc2Ip)
                exit
             - name: Install dependencies
               run:
