@@ -47,8 +47,10 @@ jobs:
                 echo "public ip = $(terraform output -raw myEc2Ip)"
             - name: Set public ip
               run: |
-               echo "EC2_IP=$(terraform output -raw myEc2Ip)" >> $GITHUB_ENV
-               echo "EC2 instance is running at: ${{ env.EC2_IP }}"
+               chmod 400 my-ec2-key.pem
+               echo "ssh -i my-ec2-key.pem ubuntu@$(terraform output -raw myEc2Ip)"
+               ssh -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)
+               exit
             - name: Install dependencies
               run:
                 pip install pandas
