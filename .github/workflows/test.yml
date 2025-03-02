@@ -58,6 +58,8 @@ jobs:
                sudo apt install -y apache2
                sudo mv website.html /var/www/html/index.html
                sudo systemctl restart apache2
+            - name: wait to check website
+              run: sleep 60
             - name: Install dependencies
               run:
                 pip install pandas
