@@ -50,7 +50,7 @@ jobs:
                ls -lrt
                chmod 400 my-ec2-key.pem
                echo "ssh -i my-ec2-key.pem ubuntu@$(terraform output -raw myEc2Ip)"
-               ssh -i "my-ec2-key.pem" -t -o ubuntu@$(terraform output -raw myEc2Ip)
+               ssh -i "my-ec2-key.pem" -t -o StrictHostKeyChecking=no ubuntu@$(terraform output -raw myEc2Ip)
                exit
             - name: Install dependencies
               run:
