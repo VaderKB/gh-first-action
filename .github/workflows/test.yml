@@ -48,7 +48,7 @@ jobs:
             - name: Set public ip
               run: |
                echo "EC2_IP=$(terraform output -raw myEc2Ip)" >> $GITHUB_ENV
-               run: echo "EC2 instance is running at: ${{ env.EC2_IP }}"
+               echo "EC2 instance is running at: ${{ env.EC2_IP }}"
             - name: Destroy infra
               run: terraform destroy -auto-approve
             - name: Install dependencies
