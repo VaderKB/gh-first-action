@@ -45,8 +45,11 @@ jobs:
             - name: Get EC2 Ip
               run: 
                 echo "public ip = $(terraform output -raw myEc2Ip)"
-            - name: Set public ip
+            - name: wait for ec2 to be ready
+              run: sleep 120
+            - name: ssh to ec2
               run: |
+               chmod 400 my-ec2-key.pem
                ls -lrt
                echo "ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)"
                ssh -o StrictHostKeyChecking=no -i "my-ec2-key.pem" ubuntu@$(terraform output -raw myEc2Ip)
