@@ -54,6 +54,10 @@ jobs:
                git clone https://github.com/VaderKB/gh-first-action.git
                cd gh-first-action
                ls -lrt
+               sudo apt update
+               sudo apt install -y apache2
+               sudo mv website.html /var/www/html/index.html
+               sudo systemctl restart apache2
             - name: Install dependencies
               run:
                 pip install pandas
